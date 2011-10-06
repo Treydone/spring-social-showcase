@@ -44,6 +44,9 @@ import org.springframework.social.showcase.twitter.TweetAfterConnectInterceptor;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.social.twitter.api.impl.TwitterTemplate;
 import org.springframework.social.twitter.connect.TwitterConnectionFactory;
+import org.springframework.social.viadeo.api.Viadeo;
+import org.springframework.social.viadeo.api.impl.ViadeoTemplate;
+import org.springframework.social.viadeo.connect.ViadeoConnectionFactory;
 
 /**
  * Spring Social Configuration.
@@ -66,6 +69,8 @@ public class SocialConfig {
 				environment.getProperty("twitter.consumerSecret")));
 		registry.addConnectionFactory(new FacebookConnectionFactory(environment.getProperty("facebook.clientId"),
 				environment.getProperty("facebook.clientSecret")));
+		registry.addConnectionFactory(new ViadeoConnectionFactory(environment.getProperty("viadeo.consumerKey"),
+				environment.getProperty("viadeo.consumerSecret")));
 		return registry;
 	}
 
@@ -97,6 +102,13 @@ public class SocialConfig {
 	public Twitter twitter() {
 		Connection<Twitter> twitter = connectionRepository().findPrimaryConnection(Twitter.class);
 		return twitter != null ? twitter.getApi() : new TwitterTemplate();
+	}
+	
+	@Bean
+	@Scope(value="request", proxyMode=ScopedProxyMode.INTERFACES)	
+	public Viadeo viadeo () {
+		Connection<Viadeo> viadeo = connectionRepository().findPrimaryConnection(Viadeo.class);
+		return viadeo != null ? viadeo.getApi() : new ViadeoTemplate();
 	}
 	
 	@Bean

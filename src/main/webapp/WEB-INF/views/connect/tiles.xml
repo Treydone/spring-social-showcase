@@ -22,5 +22,13 @@
 	<definition name="connect/twitterConnected" extends="page">
 		<put-attribute name="content" value="/WEB-INF/views/connect/twitterConnected.jsp" />
 	</definition>
+	
+		<definition name="connect/viadeoConnect" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/connect/viadeoConnect.jsp" />
+	</definition>
+
+	<definition name="connect/viadeoConnected" extends="page">
+		<put-attribute name="content" value="/WEB-INF/views/connect/viadeoConnected.jsp" />
+	</definition>
 
 </tiles-definitions>
