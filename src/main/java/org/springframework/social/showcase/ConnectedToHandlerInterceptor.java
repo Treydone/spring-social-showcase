@@ -34,6 +34,7 @@ public class ConnectedToHandlerInterceptor extends HandlerInterceptorAdapter {
 		if (request.getUserPrincipal() != null) {
 			request.setAttribute("connectedToTwitter", connectionRepository.findConnections("twitter").size() > 0);
 			request.setAttribute("connectedToFacebook", connectionRepository.findConnections("facebook").size() > 0);
+			request.setAttribute("connectedToViadeo", connectionRepository.findConnections("viadeo").size() > 0);
 		}
 		return true;
 	}

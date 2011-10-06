@@ -24,3 +24,11 @@
 	<li><a href="<c:url value="/facebook/albums"/>">Albums</a></li>
 </ul>
 </c:if>
+
+<h4><a href="<c:url value="/viadeo"/>">Viadeo</a></h4>
+<c:if test="${connectedToViadeo}">
+<ul class="menu">
+	<li><a href="<c:url value="/viadeo"/>">User Profile</a></li>
+	<li><a href="<c:url value="/viadeo/timeline"/>">Timeline</a></li>
+</ul>
+</c:if>
